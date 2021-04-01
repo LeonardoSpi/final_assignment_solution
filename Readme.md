@@ -5,17 +5,15 @@ This package was developed as a solution of the final assignment of the Research
 ### Behaviors implemented:
 As you run the solution.launch file two nodes output will be printed to screen. The first one is the user interface, this node will ask the user to choose robot behaviors specified in this list:
 
-**1) Random Target:** as the user digits 1, the user_interface will call for a service (random_goal_generator) which will generate a random goal and publish it on the move_base/goal                    topic, when the goal is reached the response is set to true and the user interface comes back.<br/>
-**2) Select Target:** as the user digits 2, the user_interface will ask to pick a target from a list of possible destinations. Once the destination is choosen,
- 		   the user_interface will call for a service (picked_target) passing the number of the destination selected in the list which identifies the x and y coordinate,
-		   (the custom service called behavior.srv can be found in the folder /srv).
-		   As for random target option, the goal is published on move_base/goal topic and the response is set to True once the goal has been reached.
-		   Again, as soon as the response of the service is given, the user_interface comes back ready to acquire another input.<br/>
-**3) Wall follower:** as the user digits 3, the user_interface will call for the service /wall_follower_switch which is offered by the wall_follower node that is included
- 		  in the launch file. As the user digit any key the service is called with a false bool which causes the wall_follower mode to cease.
-		  To avoid velocities that have been published on topic /cmd_vel by wall_follower to keep the robot moving, as the service is called with a false request
-		  all the velocities are set to 0.<br/>
-**4) Stand bye:** as the user digits 4, the velocities are set to 0 and the robot stand bye waiting for any pressed key. When a key is pressed the interface shows up again.
+**1) Random Target:**
+As the user digits 1, the user_interface will call for a service (random_goal_generator) which will generate a random goal and publish it on the move_base/goal topic, when the goal is reached the response is set to true and the user interface comes back.<br/>
+**2) Select Target:**
+As the user digits 2, the user_interface will ask to pick a target from a list of possible destinations. Once the destination is choosen, the user_interface will call for a service (picked_target) passing the number of the destination selected in the list which identifies the x and y coordinate, (the custom service called behavior.srv can be found in the folder /srv). As for random target option, the goal is published on move_base/goal topic and the response is set to True once the goal has been reached.
+Again, as soon as the response of the service is given, the user_interface comes back ready to acquire another input.<br/>
+**3) Wall follower:**
+As the user digits 3, the user_interface will call for the service /wall_follower_switch which is offered by the wall_follower node that is included in the launch file. As the user digit any key the service is called with a false bool which causes the wall_follower mode to cease. To avoid velocities that have been published on topic /cmd_vel by wall_follower to keep the robot moving, as the service is called with a false request all the velocities are set to 0.<br/>
+**4) Stand bye:**
+As the user digits 4, the velocities are set to 0 and the robot stand bye waiting for any pressed key. When a key is pressed the interface shows up again.
 
 ### Architecture of the software:
 
