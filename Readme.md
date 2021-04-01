@@ -19,6 +19,12 @@ As the user digits 4, the velocities are set to 0 and the robot stand bye waitin
 
 ![](rosgraph.png)
 
+The user_interface interact with the user, based on the user input it will call for three different services to provide random target, picked target and wall follower mode. The only publisher relation that the user_interface has is to grant stanby mode setting velocities to 0 in the cmd_vel topic.
+
+The behavior_server waits for two services call and interact with move_base node by publishing into move_base/goal to set goals or move_base/cancel to cancel the goals.
+
+The wall_follower node, which has not been developed inside this package, waits for a service call to activate wall_follower mode.
+
 ### Simulation on Gazebo:
 
 ![](gazebo.jpg)
