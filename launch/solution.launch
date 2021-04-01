@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+	
+	<node name="behavior_server" pkg="final_assignment_solution" type="behavior_server.py" output="screen" />
+	<node pkg="final_assignment" type="wall_follow_service_m.py" name="wall_follower" />
+	<node pkg="gmapping" type="my_tf_echo" name="map_odom_transform" />
+	<node name="user_interface" pkg="final_assignment_solution" type="user_interface.py" output="screen" />
+
+
+</launch>
