@@ -55,12 +55,12 @@ def status(msg): # This function is the callback for the /gmapping odom subscrib
 	else: # If the distances are higher than 1.5
 		if active_ == True: # Check if random target service is active
 			goal_status = False 
-			print ("desired goal x: ", desired_position_.x) # Random target service is active
-			print ("desired goal y: ", desired_position_.y) # print all valuable
-			print ("current position x: ", msg.linear.x)	# informations
-			print ("current position y: ", msg.linear.y)
-			print ("Distance in x is: ", distance_x)
-			print ("Distance in y is: ", distance_y)
+			print "desired goal x: ", desired_position_.x # Random target service is active
+			print "desired goal y: ", desired_position_.y # print all valuable
+			print "current position x: ", msg.linear.x	# informations
+			print "current position y: ", msg.linear.y
+			print "Distance in x is: ", distance_x
+			print "Distance in y is: ", distance_y
 
 def randomtarget(req):	# This function gets called from the services /random_goal_generator
 	global active_	
