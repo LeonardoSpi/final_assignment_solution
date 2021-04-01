@@ -40,7 +40,7 @@ First run gazebo and move_base:
 
 Then to run the solution you can use the solution.launch file:
 
-	roslaunch assignment1_solution solution.launch
+	roslaunch final_assignment_solution solution.launch
 
 ## Launch files
 
