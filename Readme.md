@@ -124,4 +124,4 @@ None
 	
 ### Possible improvements:
 Move_base node uses mainly actions to operate. The first improvement would be using actions instead of publish/subscribe to set or cancel goals.
-my_tf_echo node isn't very precise, the tolerance for a goal to be considered reached has been set to 1.5. This has been done to avoid the user_interface to be stuck in waiting for a goal that move_base already consider to be reached.
+My_tf_echo node isn't very precise, the tolerance for a goal to be considered reached has been set to 1.5. This has been done to avoid the user_interface to be stuck in waiting for a goal that move_base already consider to be reached.
