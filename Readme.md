@@ -21,7 +21,7 @@ As the user digits 4, the velocities are set to 0 and the robot stand bye waitin
 
 The user_interface interact with the user, based on the user input it will call for three different services to provide random target, picked target and wall follower mode. The only publisher relation that the user_interface has is to grant stanby mode, which is implemented by setting velocities to 0 in the cmd_vel topic.
 
-The behavior_server waits for two services call and interact with move_base node by publishing into move_base/goal to set goals or move_base/cancel to cancel the goals.
+The behavior_server waits for two services call and interact with move_base node by publishing into move_base/goal to set goals or move_base/cancel to cancel the goals. The algorithm uses the info published by map_odom_transform node (my_tf_echo.cpp) to check if the current robot position is equal to the desired goal.
 
 The wall_follower node, which has not been developed inside this package, waits for a service call to activate wall_follower mode.
 
@@ -72,6 +72,8 @@ Then to run the solution you can use the solution.launch file:
 	- **'map_odom_transform'** Starts a node that publishes the actual robot position on the /gmapping_odom topic
 	- **'user_interface'** Starts a node that allow the user to interact with the robot and calls for services
 
+behavior_server and user_interface outputs are set to true. Infact the current robot positions and desider goal are printed to screen by the behavior_server. This means that by running the launch file all possible informations will be displayed in the same shell. Instead, if the user wants only the interface to be showing and goals and position in another shell, he can run the nodes in two separated shells.
+
 ## Custom Nodes
 
 ### behavior_server
@@ -119,3 +121,7 @@ None
 * **`/cmd_vel`** ([move_base_msgs/MoveBaseActionGoal])
 
 	In this topic the node can publish robot velocities. User_interface publish on this topic only to stop the robot when asked by the user. Otherwise, when reaching a target, the velocities are generated and published by move_base.
+	
+### Possible improvements:
+Move_base node uses mainly actions to operate. The first improvement would be using actions instead of publish/subscribe to set or cancel goals.
+my_tf_echo node isn't very precise, the tolerance for a goal to be considered reached has been set to 1.5. This has been done to avoid the user_interface to be stuck in waiting for a goal that move_base already consider to be reached.
