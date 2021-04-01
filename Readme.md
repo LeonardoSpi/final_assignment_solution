@@ -2,15 +2,15 @@
 
 This package was developed as a solution of the final assignment of the Research Track I course of Robotics Engineering held by Professor Recchiuto Carmine. The package allows a simulated robot to generate and reach random goals in a 3d environment simulated in gazebo.
 
-Architecture of the software:
+### Architecture of the software:
 
 ![](rosgraph.png)
 
-Simulation on Gazebo:
+### Simulation on Gazebo:
 
 ![](gazebo.jpg)
 
-Simulation on Rviz:
+### Simulation on Rviz:
 
 ![](rviz.png)
 
