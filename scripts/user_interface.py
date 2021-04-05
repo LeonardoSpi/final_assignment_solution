@@ -63,7 +63,7 @@ def stop():			# This function is needed to stop the robot
 	vel_msg.angular.z = 0
 	velocity.publish(vel_msg)	
 
-def behavior_server():
+def user_interface():
 	rospy.init_node('user_interface') # Initialize the node as 'user_interface'
 
 	# The node uses the services /wall_follower_switch, /random_goal_generator, and /picked_target
@@ -126,6 +126,6 @@ def behavior_server():
 
 if __name__ == '__main__':
     try:
-		behavior_server() # Execute function behavior_server()
+		user_interface() # Execute function behavior_server()
     except rospy.ROSInterruptException: # Keep going until keyboard exception (Ctrl+C)
         	pass
